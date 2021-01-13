@@ -4,11 +4,11 @@ const ASSESSMENT_API_BASE_URL = "http://localhost:8081/springfox/api/assessments
 
 class AdminAssessmentService {
     getAssessment(){
-        return axios.get(ASSESSMENT_API_BASE_URL);
+        return axios.get(ASSESSMENT_API_BASE_URL+'/');
     }
 
     createAssessment(assessment){
-        return axios.post(ASSESSMENT_API_BASE_URL,assessment);
+        return axios.post(ASSESSMENT_API_BASE_URL+'/',assessment);
     }
 
     getAssessmentById(assessmentId){
@@ -23,6 +23,5 @@ class AdminAssessmentService {
         return axios.delete(ASSESSMENT_API_BASE_URL+'/'+assessmentId);
     }
 }
-
 //exporting EmployeeService object
-export default AdminAssessmentService();
+export default new AdminAssessmentService();

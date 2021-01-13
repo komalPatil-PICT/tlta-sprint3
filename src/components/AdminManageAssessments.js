@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import ListAssessment from './Admin/adminAssessmentComponents/ListAssessmentComponent';
 
 class AdminManageAssessments extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome</h1>
+                <ListAssessment {...this.props}/>
             </div>
         );
     }
