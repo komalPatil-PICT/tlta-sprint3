@@ -44,8 +44,8 @@ class ListAssessmentComponent extends Component{
         return (
             <div>
                 <h2 className="text-center">Assessments List</h2>
-                <div className="row">
-                    <button className="btn btn-primary" onClick={this.addAssessment}>Add Assessment</button>
+                <div className="form-group"> 
+                    <button class="btn btn-success btn-lg float-right" onClick={this.addAssessment}>Add Assessment</button>
                 </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
