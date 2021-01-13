@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import ListUserComponent from './Admin/adminUserComponent/ListUserComponent';
 
 class AdminManageUser extends Component {
     render() {
         return (
             <div>
-                <h2>Admin Manage Users</h2>
+                <ListUserComponent {...this.props}/>
             </div>
         );
     }

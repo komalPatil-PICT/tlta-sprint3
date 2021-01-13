@@ -12,7 +12,10 @@ import ListAssessment from './components/Admin/adminAssessmentComponents/ListAss
 import AddAssessment from './components/Admin/adminAssessmentComponents/CreateAssessmentComponent';
 import UpdateAssessment from './components/Admin/adminAssessmentComponents/UpdateAssessmentComponent';
 import ViewAssessment from './components/Admin/adminAssessmentComponents/ViewAssessmentComponent';
-
+import ListUsers from './components/Admin/adminUserComponent/ListUserComponent';
+import AddUser from './components/Admin/adminUserComponent/CreateUserComponent';
+import UpdateUser from './components/Admin/adminUserComponent/UpdateUserComponent';
+import ViewUser from './components/Admin/adminUserComponent/ViewUserComponent';
 
 const AppRouter = () => (
     <BrowserRouter>
@@ -29,6 +32,11 @@ const AppRouter = () => (
                 <Route path="/add-assessment" component={AddAssessment} />
                 <Route path = "/update-assessment/:id" component= {UpdateAssessment}></Route>
                 <Route path = "/view-assessment/:id" component= {ViewAssessment}></Route>             
+
+                <Route path="/users" component={ListUsers} />
+                <Route path="/add-user" component={AddUser} />
+                <Route path = "/update-user/:id" component= {UpdateUser}></Route>
+                <Route path = "/view-user/:id" component= {ViewUser}></Route>             
 
                 <Route component={NotFound} />
             </Switch>
