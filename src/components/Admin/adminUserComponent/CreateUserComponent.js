@@ -94,9 +94,6 @@ class CreateUserComponent extends Component {
 
                                     <div className="form-group">
                                         <label>Enter Role(USER,MODERATOR)</label>
-                                        {/* <input placeholder="Role" name="role"
-                                            className="form-control" value={this.state.role}
-                                            onChange={this.changeRoleHandler} /> */}
                                             <select value={this.state.role} onChange={this.changeRoleHandler} name="role">
                                                 <option value="USER">USER</option>
                                                 <option value="MODERATOR">MODERATOR</option>

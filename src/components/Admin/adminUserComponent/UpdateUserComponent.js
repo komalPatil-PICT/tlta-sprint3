@@ -10,7 +10,7 @@ class UpdateUserComponent extends Component {
             lastName: '',
             emailId: '',
             password: '',
-            role :''
+            role :'USER'
         }
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
         this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
@@ -106,11 +106,13 @@ class UpdateUserComponent extends Component {
                                     </div>
                                     
                                     <div className="form-group">
-                                        <label>Enter Role</label>
-                                        <input placeholder="Role" name="role"
-                                            className="form-control" value={this.state.role}
-                                            onChange={this.changeRoleHandler} />
+                                        <label>Enter Role(USER,MODERATOR)</label>
+                                            <select value={this.state.role} onChange={this.changeRoleHandler} name="role">
+                                                <option value="USER">USER</option>
+                                                <option value="MODERATOR">MODERATOR</option>
+                                            </select>
                                     </div>
+
                                     <button className = "btn btn-success" onClick = {this.updateUser}>Update</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
                                 </form>

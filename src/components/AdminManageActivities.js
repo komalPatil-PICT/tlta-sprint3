@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import ListActivities from './Admin/adminActivityComponent/ListActivityComponent';
 
 class AdminManageActivities extends Component {
     render() {
         return (
             <div>
-                <h2>Welcome </h2>                
+               <ListActivities {...this.props}/>
             </div>
         );
     }
