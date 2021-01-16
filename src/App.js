@@ -22,6 +22,10 @@ import AddActivity from './components/Admin/adminActivityComponent/CreateActivit
 import UpdateActivity from './components/Admin/adminActivityComponent/UpdateActivityComponent';
 import ViewActivity from './components/Admin/adminActivityComponent/ViewActivityComponent';
 
+import ListUserActivities from './components/Admin/adminUserActivity/ListUserActivityComponent';
+import UpdateUserActivity from './components/Admin/adminUserActivity/UpdateUserActivityComponent';
+import ViewUserActivities from './components/Admin/adminUserActivity/ViewUserActivityComponent';
+
 const AppRouter = () => (
     <BrowserRouter>
         <Header />
@@ -46,8 +50,15 @@ const AppRouter = () => (
                 <Route path="/activities" component={ListActivities} />
                 <Route path="/add-activity" component={AddActivity} />
                 <Route path = "/update-activity/:id" component= {UpdateActivity}></Route>
-                <Route path = "/view-activity/:id" component= {ViewActivity}></Route>      
+                <Route path = "/view-activity/:id" component= {ViewActivity}></Route>  
 
+                <Route path="/view-user-activity/:userActivityId" component={ViewUserActivities} />
+                <Route path="/userActivity" component={ListUserActivities} />
+                <Route path = "/update-user-activity/:userActivityId" component= {UpdateUserActivity}></Route>
+                {/* <Route path="/add-activity" component={AddActivity} />
+                
+                <Route path = "/view-activity/:id" component= {ViewActivity}></Route>  
+                     */}
                 <Route component={NotFound} />
             </Switch>
         </div>
