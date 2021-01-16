@@ -62,7 +62,7 @@ class Login extends Component {
 
             console.log(this.state);
 
-            var apiBaseUrl = "http://localhost:8081/springfox/api/staffLogin/login";
+            var apiBaseUrl = "http://localhost:8081/springfox/api/Login/login";
 
             var data = {
 
@@ -83,13 +83,13 @@ class Login extends Component {
 
             axios.post(apiBaseUrl, data, { headers: headers }).then(function (response) {
                 console.log(response);
-                if (data.role === "Admin") {
-                    window.location = "/admin-dashboard";
+                if (data.role === "ADMIN") {
+                    window.location = "/";
                 }
-                else if (data.role === "Moderator") {
-                    window.location = "/ops-dashboard";
+                else if (data.role === "MODERATOR") {
+                    window.location = "/moderator";
                 }
-                else if (data.role === "User") {
+                else if (data.role === "USER") {
                     window.location = "/";
                 }
                 if (response.data.success) {
@@ -231,10 +231,10 @@ class Login extends Component {
                                 <FormGroup>
                                     <Label for="role">Role</Label>
                                     <select name="role" className="form-control" value={this.state.role} onChange={this.handleChangeRole}  >
-                                        <option></option>
-                                        <option >Admin</option>
-                                        <option>Moderator</option>
-                                        <option>User</option>
+                                        <option ></option>
+                                        <option >ADMIN</option>
+                                        <option>MODERATOR</option>
+                                        <option>USER</option>
                                     </select>
 
 
