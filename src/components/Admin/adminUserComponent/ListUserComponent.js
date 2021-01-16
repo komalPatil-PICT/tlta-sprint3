@@ -43,7 +43,7 @@ class ListUserComponent extends Component{
     render() {
         return (
             <div>
-                <h2 className="text-center">Users List</h2>
+                <h2 className="text-center mt-4">Users List</h2>
                 <div className="form-group"> 
                     <button className="btn btn-success btn-lg float-right" onClick={this.addUser}>Add User</button>
                 </div>
