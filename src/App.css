@@ -37,6 +37,22 @@
   }
 }
 
+body{
+  background-color: rosybrown;
+
+}
+.content {
+  min-height: calc(100vh - 120px);
+  /* 80px header + 40px footer = 120px  */
+}
+footer {
+  position:fixed;
+  height: 50px;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -46,3 +62,4 @@
   text-align: center;
   color: white;
 }
+

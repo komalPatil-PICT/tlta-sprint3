@@ -2,10 +2,15 @@ import './App.css';
 import Header from './components/Header';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AdminDashBoard from './components/AdminDashBoard';
+import ModeratorDashBoard from './components/ModeratorDashBoard';
+
 import NotFound from './components/NotFound';
 import AdminManageUser from "./components/AdminManageUser";
+import ModeratorManageUser from "./components/ModeratorManageUser";
 import AdminManageActivity from "./components/AdminManageActivities";
+import ModeratorManageActivities from "./components/ModeratorManageActivities";
 import AdminManageAssessments from './components/AdminManageAssessments';
+import ModeratorManageAssessments from './components/ModeratorManageAssessments';
 import AdminReviewCertificates from './components/AdminReviewCertificates';
 import FooterComponent from './components/FooterComponent';
 import ListAssessment from './components/Admin/adminAssessmentComponents/ListAssessmentComponent';
@@ -21,13 +26,18 @@ import ListActivities from './components/Admin/adminActivityComponent/ViewActivi
 import AddActivity from './components/Admin/adminActivityComponent/CreateActivityComponent';
 import UpdateActivity from './components/Admin/adminActivityComponent/UpdateActivityComponent';
 import ViewActivity from './components/Admin/adminActivityComponent/ViewActivityComponent';
-
+import Login from './Login';
+import Logout from './Logout';
 const AppRouter = () => (
     <BrowserRouter>
-        <Header />
+       <Header />
         <div className='container'>
             <Switch>
                 <Route path="/" component={AdminDashBoard} exact={true} />
+                <Route path="/moderator" component={ModeratorDashBoard} exact={true} />
+                <Route path="/login" component={Login} exact={true} />
+                <Route path="/logout" component={Logout} exact={true} />
+
                 <Route path="/adminManageUsers" component={AdminManageUser} />
                 <Route path="/adminActivities" component={AdminManageActivity} />
                 <Route path="/adminAssessments" component={AdminManageAssessments} />
@@ -46,7 +56,14 @@ const AppRouter = () => (
                 <Route path="/activities" component={ListActivities} />
                 <Route path="/add-activity" component={AddActivity} />
                 <Route path = "/update-activity/:id" component= {UpdateActivity}></Route>
-                <Route path = "/view-activity/:id" component= {ViewActivity}></Route>      
+                <Route path = "/view-activity/:id" component= {ViewActivity}></Route>  
+
+                <Route path="/moderatorManageUsers" component={ModeratorManageUser} />
+                <Route path="/moderatorManageActivities" component={ModeratorManageActivities} />
+                <Route path="/moderatorManageAssessments" component={ModeratorManageAssessments} />
+
+               
+           
 
                 <Route component={NotFound} />
             </Switch>

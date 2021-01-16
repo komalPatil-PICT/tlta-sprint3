@@ -76,7 +76,7 @@ class UpdateUserComponent extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Edit User</h3>
+                            <h3 className="text-center mt-4">Edit User</h3>
                             <div className="card-body">
                                 <form>
                                     <div className="form-group">
