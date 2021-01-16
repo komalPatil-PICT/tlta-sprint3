@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UserService from '../../../services/AdminUserService';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope,faUser,faLock} from '@fortawesome/free-solid-svg-icons';
 class CreateUserComponent extends Component {
     constructor(props) {
         super(props);
@@ -60,36 +61,40 @@ class CreateUserComponent extends Component {
     render() {
         return (
             <div>
-                <div className="container">
-                    <div className="row">
-                        <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Add User</h3>
-                            <div className="card-body">
+           
+            
+                <div  className="container">
+                    <div  className="row">
+                        <div className="card col-md-6 offset-md-3 offset-md-3 ">
+                            <h3 className="text-center mt-4">Add User</h3>
+                            <div  className="card-body ">
                                 <form>
                                     <div className="form-group">
-                                        <label>Enter First Name</label>
+                                        <label>Enter First Name <FontAwesomeIcon icon={faUser} /></label>
                                         <input placeholder="First Name" name="firstName"
                                             className="form-control" value={this.state.firstName}
                                             onChange={this.changeFirstNameHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label>Enter Last Name</label>
+                                        <label>Enter Last Name <FontAwesomeIcon icon={faUser} /></label>
                                         <input placeholder="Last Name" name="lastName"
                                             className="form-control" value={this.state.lastName}
                                             onChange={this.changeLastNameHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label>Enter Email Id</label>
+                                        <label>Enter Email Id <FontAwesomeIcon icon={faEnvelope} /> </label>
                                         <input placeholder="Email ID" name="emailId"
                                             className="form-control" value={this.state.emailId}
                                             onChange={this.changeEmailIdHandler} />
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Enter Password</label>
+                                
+                                        <label>Enter Password <FontAwesomeIcon icon={faLock} /></label>
                                         <input placeholder="Password" name="password"
                                             className="form-control" value={this.state.password}
                                             onChange={this.changePasswordHandler} />
+                                           
                                     </div>
 
                                     <div className="form-group">

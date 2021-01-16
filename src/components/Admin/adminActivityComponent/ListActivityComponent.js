@@ -42,7 +42,7 @@ class ListActivityComponent extends Component{
     render() {
         return (
             <div>
-                <h2 className="text-center">Activities List</h2>
+                <h2 className="text-center mt-4">Activities List</h2>
                 <div className="form-group"> 
                     <button class="btn btn-success btn-lg float-right" onClick={this.addActivity}>Add Activity</button>
                 </div>

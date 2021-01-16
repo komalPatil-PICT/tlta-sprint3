@@ -43,7 +43,7 @@ class ListAssessmentComponent extends Component{
     render() {
         return (
             <div>
-                <h2 className="text-center">Assessments List</h2>
+                <h2 className="text-center mt-4">Assessments List</h2>
                 <div className="form-group"> 
                     <button class="btn btn-success btn-lg float-right" onClick={this.addAssessment}>Add Assessment</button>
                 </div>

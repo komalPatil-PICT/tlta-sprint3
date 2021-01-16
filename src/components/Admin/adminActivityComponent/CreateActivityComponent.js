@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ActivityService from '../../../services/AdminLearningActivityService';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import{faLink,faCalendarAlt, faClock} from '@fortawesome/free-solid-svg-icons';
 class CreateActivityComponent extends Component {
     constructor(props) {
         super(props);
@@ -67,7 +68,7 @@ class CreateActivityComponent extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Add Activity</h3>
+                            <h3 className="text-center mt-4">Add Activity</h3>
                             <div className="card-body">
                                 <form>
                                     <div className="form-group">
@@ -77,7 +78,7 @@ class CreateActivityComponent extends Component {
                                             onChange={this.changeActivityNameHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label>Enter Activity Link</label>
+                                        <label>Enter Activity Link <FontAwesomeIcon icon={faLink} /></label>
                                         <input placeholder="Activity Link" name="activityLink"
                                             className="form-control" value={this.state.activityLink}
                                             onChange={this.changeActivityLinkHandler} />
@@ -90,7 +91,7 @@ class CreateActivityComponent extends Component {
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Enter Activity Time in Hours</label>
+                                        <label>Enter Activity Time in Hours <FontAwesomeIcon icon={faClock} /></label>
                                         <input placeholder="Activity Time" name="activityTime"
                                             className="form-control" value={this.state.activityTime}
                                             onChange={this.changeActivityTimeHandler} />
@@ -98,7 +99,7 @@ class CreateActivityComponent extends Component {
 
                                     
                                     <div className="form-group">
-                                        <label>Enter activity Release Date</label>
+                                        <label>Enter activity Release Date <FontAwesomeIcon icon={faCalendarAlt} /></label>
                                         <input placeholder="activity Release Date" name="activityReleaseDate"
                                             className="form-control" value={this.state.activityReleaseDate}
                                             onChange={this.changeActivityReleaseDateHandler} />
