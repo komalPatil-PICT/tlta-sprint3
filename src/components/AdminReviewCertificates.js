@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import ListUsersActivityComponent from './Admin/adminUsersActivityComponents/ListUsersActivityComponent';
-
+import ListUserActivity from './Admin/adminUserActivity/ListUserActivityComponent';
 
 class AdminReviewCertificates extends Component {
     render() {
         return (
             <div>
                 <h1>Welcome</h1>
-                <ListUsersActivityComponent {...this.props}/>
+               // <ListUsersActivityComponent {...this.props}/>
 
+                <ListUserActivity  {...this.props}/>
             </div>
         );
     }

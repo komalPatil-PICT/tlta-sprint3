@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AssessmentService from '../../../services/AdminAssessmentService';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarAlt,faClock} from '@fortawesome/free-solid-svg-icons';
 class CreateAssessmentComponent extends Component {
     constructor(props) {
         super(props);
@@ -58,7 +59,7 @@ class CreateAssessmentComponent extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Add Assessment</h3>
+                            <h3 className="text-center mt-4">Add Assessment</h3>
                             <div className="card-body">
                                 <form>
                                     <div className="form-group">
@@ -74,14 +75,14 @@ class CreateAssessmentComponent extends Component {
                                             onChange={this.changeAssessmentTypeHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label>Enter Assessment Release Date</label>
+                                        <label>Enter Assessment Release Date <FontAwesomeIcon icon={faCalendarAlt} /></label>
                                         <input placeholder="Released Date" name="assessmentReleaseDate"
                                             className="form-control" value={this.state.assessmentReleaseDate}
                                             onChange={this.changeAssessmentReleaseDateHandler} />
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Enter Assessment Time Duration in hours</label>
+                                        <label>Enter Assessment Time Duration in hours <FontAwesomeIcon icon={faClock}/> </label>
                                         <input placeholder="Time Duration" name="assessmentTimeDuration"
                                             className="form-control" value={this.state.assessmentTimeDuration}
                                             onChange={this.changeAssessmentTimeDurationHandler} />

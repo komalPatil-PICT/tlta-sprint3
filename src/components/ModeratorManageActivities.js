@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ListActivities from './Admin/adminActivityComponent/ListActivityComponent';
 
-class AdminManageActivities extends Component {
+class ModeratorManageActivities extends Component {
     render() {
         return (
             <div>
@@ -11,4 +11,4 @@ class AdminManageActivities extends Component {
     }
 }
 
-export default AdminManageActivities;
+export default ModeratorManageActivities;

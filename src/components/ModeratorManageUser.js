@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ListUserComponent from './Admin/adminUserComponent/ListUserComponent';
 
-class AdminManageUser extends Component {
+class ModeratorManageUser extends Component {
     render() {
         return (
             <div>
@@ -11,4 +11,4 @@ class AdminManageUser extends Component {
     }
 }
 
-export default AdminManageUser;
+export default ModeratorManageUser;
