@@ -5,6 +5,9 @@ class AdminReviewCertificates extends Component {
     render() {
         return (
             <div>
+                <h1>Welcome</h1>
+               // <ListUsersActivityComponent {...this.props}/>
+
                 <ListUserActivity  {...this.props}/>
             </div>
         );

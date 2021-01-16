@@ -14,10 +14,11 @@ const Header = () => (
             <Nav.Link href="/usersActivities">Review User's Activities</Nav.Link>
             
             <NavDropdown className="mr-auto" title="Symbol"  id="basic-nav-dropdown">
-<NavDropdown.Item href="/myprofile">My Profile</NavDropdown.Item>
-<NavDropdown.Item href="/settings">Settings <FontAwesomeIcon icon={faCog} /></NavDropdown.Item>
-<NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
-</NavDropdown>
+            <NavDropdown.Item href="/myprofile">My Profile</NavDropdown.Item>
+            <NavDropdown.Item href="/settings">Settings <FontAwesomeIcon icon={faCog} /></NavDropdown.Item>
+            <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+        </NavDropdown>
+
 
         </Nav>
     </Navbar>

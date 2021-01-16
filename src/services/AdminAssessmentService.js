@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ASSESSMENT_API_BASE_URL = "http://localhost:8081/springfox/api/assessments";
+const ASSESSMENT_API_BASE_URL = "http://localhost:8080/springfox/api/assessments";
 
 class AdminAssessmentService {
     getAssessment(){
