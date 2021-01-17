@@ -11,7 +11,7 @@ import AdminManageActivity from "./components/AdminManageActivities";
 import ModeratorManageActivities from "./components/ModeratorManageActivities";
 import AdminManageAssessments from './components/AdminManageAssessments';
 import ModeratorManageAssessments from './components/ModeratorManageAssessments';
-import AdminReviewCertificates from './components/AdminReviewCertificates';
+
 import FooterComponent from './components/FooterComponent';
 import ListAssessment from './components/Admin/adminAssessmentComponents/ListAssessmentComponent';
 import AddAssessment from './components/Admin/adminAssessmentComponents/CreateAssessmentComponent';
@@ -26,9 +26,6 @@ import ListActivities from './components/Admin/adminActivityComponent/ViewActivi
 import AddActivity from './components/Admin/adminActivityComponent/CreateActivityComponent';
 import UpdateActivity from './components/Admin/adminActivityComponent/UpdateActivityComponent';
 import ViewActivity from './components/Admin/adminActivityComponent/ViewActivityComponent';
-import ListUserActivities from './components/Admin/adminUserActivity/ListUserActivityComponent';
-import UpdateUserActivity from './components/Admin/adminUserActivity/UpdateUserActivityComponent';
-import ViewUserActivities from './components/Admin/adminUserActivity/ViewUserActivityComponent';
 
 import ListUsersActivityComponent from './components/Admin/adminUsersActivityComponents/ListUsersActivityComponent';
 import UpdateUsersActivityComponent from './components/Admin/adminUsersActivityComponents/UpdateUsersActivityComponent';
@@ -59,7 +56,7 @@ const AppRouter = () => (
                 <Route path="/adminManageUsers" component={AdminManageUser} />
                 <Route path="/adminActivities" component={AdminManageActivity} />
                 <Route path="/adminAssessments" component={AdminManageAssessments} />
-                <Route path="/usersActivities" component={AdminReviewCertificates} />
+                
 
                 <Route path="/userDashboard" component={UserDashBoard} exact={true} />
                 <Route path="/userHomePage" component={UserHomePage} />
@@ -76,7 +73,7 @@ const AppRouter = () => (
                 <Route path = "/update-assessment/:id" component= {UpdateAssessment}></Route>
                 <Route path = "/view-assessment/:id" component= {ViewAssessment}></Route>  
 
-                <Route path="/userActivity" component={ListUsersActivityComponent} />
+                <Route path="/usersActivity" component={ListUsersActivityComponent} />
                 <Route path="/update-userActivity/:id" component={UpdateUsersActivityComponent} ></Route> 
                 <Route path="/view-userActivity/:id" component={ViewUsersActivityComponent} ></Route>  
 
@@ -95,13 +92,7 @@ const AppRouter = () => (
                 <Route path="/moderatorManageActivities" component={ModeratorManageActivities} />
                 <Route path="/moderatorManageAssessments" component={ModeratorManageAssessments} />
 
-                <Route path="/view-user-activity/:userActivityId" component={ViewUserActivities} />
-                <Route path="/userActivity" component={ListUserActivities} />
-                <Route path = "/update-user-activity/:userActivityId" component= {UpdateUserActivity}></Route>
-                {/* <Route path="/add-activity" component={AddActivity} />
                 
-                <Route path = "/view-activity/:id" component= {ViewActivity}></Route>  
-                     */}
                 <Route component={NotFound} />
             </Switch>
         </div>

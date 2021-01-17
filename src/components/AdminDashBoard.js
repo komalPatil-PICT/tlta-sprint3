@@ -41,7 +41,7 @@ const DashBoard = () => (
             <Col md="auto">
                 <Card style={{ width: '18rem' }}>
                     <Card.Body>
-                        <Card.Link href='/usersActivities' >Review Certificates</Card.Link>
+                        <Card.Link href='/usersActivity' >Review User's Activities</Card.Link>
                         <Card.Text>
                             Can register new user, view existing user, change password of user.
     </Card.Text>

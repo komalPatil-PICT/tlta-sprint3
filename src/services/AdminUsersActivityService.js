@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const USERSACTIVITY_API_BASE_URL = "http://localhost:8080/springfox/api/userActivity";
+const USERSACTIVITY_API_BASE_URL = "http://localhost:8081/springfox/api/userActivity";
 
 class AdminUsersActivityService {
     getUserActivity(){

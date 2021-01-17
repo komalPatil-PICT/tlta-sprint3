@@ -7,8 +7,12 @@ class UpdateUsersActivityComponent extends Component {
 
         this.state = {
             userActivityId:this.props.match.params.userActivityId,
-            status: '',
-            isLoaded:false
+            registerUser:'',
+            learningActivity:'',
+            status: 'register',
+            certificate:'',
+            file:''
+            // isLoaded:false
          
         }
         console.log("THIS.STATE:"+this.state.userActivityId);
@@ -26,8 +30,12 @@ class UpdateUsersActivityComponent extends Component {
             let userActivity =  res.data;
             this.setState({
                 userActivityId: userActivity.userActivityId,
+                registerUser:userActivity.registerUser,
+                learningActivity:userActivity.learningActivity,
                 status: userActivity.status,
-                isLoaded:true
+                certificate:userActivity.certificate,
+                file:userActivity.file
+                // isLoaded:true
                
             });
         console.log("updated:"+userActivity.userActivityId+userActivity.status);
@@ -38,7 +46,12 @@ class UpdateUsersActivityComponent extends Component {
     UpdateUsersActivity = (e)=>{
         e.preventDefault();
         let userActivity ={
-            userActivityId:this.state.userActivityId,status: this.state.status
+            userActivityId:this.state.userActivityId,
+            registerUser:this.state.registerUser,
+            learningActivity:this.state.learningActivity,
+            status: this.state.status,
+            certificate:this.state.certificate,
+            file: this.state.file
         };
         console.log(JSON.stringify(userActivity));
         AdminUsersActivityService.updateUserActivityStatus(userActivity,this.state.userActivityId)
@@ -76,7 +89,7 @@ class UpdateUsersActivityComponent extends Component {
                     <div className="row"> 
                         <div className = "card col-md-6 offset-md-3 offset-md-3">
                             <h3 className="text-center">Edit Status</h3>
-                            {this.state.isLoaded?
+                            {/* {this.state.isLoaded? */}
                             <div className = "card-body">
                                 <form >
                                     <div className="form-group"> 
@@ -93,7 +106,7 @@ class UpdateUsersActivityComponent extends Component {
                                     <button className = "btn btn-danger" onClick = {this.cancel.bind(this)} style = {{marginLeft: "10px"}}>Cancel</button>
                                 </form>
                             </div>
-                            :null}
+                            {/* :null} */}
                         </div>
                     </div>
 

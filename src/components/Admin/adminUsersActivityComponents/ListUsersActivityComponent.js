@@ -42,7 +42,7 @@ class ListUsersActivityComponent extends Component {
                                 <th>Activity Name</th>
                                 <th>Status</th>
                                 <th>Certificate</th>
-                                {/* <th>File</th> */}
+                                <th>File</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -57,11 +57,10 @@ class ListUsersActivityComponent extends Component {
                                         <td>{userActivity.learningActivity.activityName}</td>
                                         <td>{userActivity.status}</td>
                                         <td>{userActivity.certificate}</td>
-                                        {/* <td>{userActivity.file}</td> */}
+                                        <td>{userActivity.file}</td>
                                         <td>
                                             <button onClick = {()=>this.editUsersActivity(userActivity.userActivityId)} className = "btn btn-info">Edit</button>
                                         </td>          
-
                                         <td>
                                             <button  style = {{marginLeft: "10px"}} onClick = {()=>this.viewUsersActivity(userActivity.userActivityId)} className = "btn btn-info">View</button>
                                         </td>

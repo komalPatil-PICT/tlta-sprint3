@@ -38,6 +38,9 @@ class ListActivityComponent extends Component{
     viewActivity(id){
         this.props.history.push(`/view-activity/${id}`);
     }
+    viewActivity(){
+        this.props.history.push(`/assessments`);
+    }
 
     render() {
         return (
@@ -45,6 +48,7 @@ class ListActivityComponent extends Component{
                 <h2 className="text-center mt-4">Activities List</h2>
                 <div className="form-group"> 
                     <button class="btn btn-success btn-lg float-right" onClick={this.addActivity}>Add Activity</button>
+                    <button class="btn btn-success btn-lg float-right" onClick={()=>this.viewActivity()}>View Assessments</button>
                 </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">

@@ -1,6 +1,6 @@
 import axios from 'axios';
  
-const USER_ACTIVITY_API_BASE_URL = "http://localhost:8080/springfox/api/learningActivity";
+const USER_ACTIVITY_API_BASE_URL = "http://localhost:8081/springfox/api/learningActivity";
  
 class UserService{
 
