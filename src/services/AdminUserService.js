@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const USER_API_BASE_URL = "http://localhost:8081/springfox/api/users";
+const USER_API_BASE_URL = "http://localhost:8080/springfox/api/users";
 
 class UserService {
     getUsers(){

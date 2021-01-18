@@ -48,13 +48,13 @@ class UpdateActivityComponent extends Component {
         };
         console.log(JSON.stringify(activity));
         ActivityService.updateActivity(activity, this.state.id).then((res) => {
-            this.props.history.push('/activities');
+            this.props.history.push('/adminActivities');
         });
 
     }
 
     cancel() {
-        this.props.history.push('/activities');
+        this.props.history.push('/adminActivities');
     }
 
     changeActivityNameHandler = (event) => {

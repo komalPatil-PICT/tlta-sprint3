@@ -6,7 +6,6 @@ class UserBrowsePage extends Component {
     render() {
         return (
             <div>
-                <h2>Welcome </h2>    
                 <ListActivityComponent {...this.props}/>              
             
             </div>

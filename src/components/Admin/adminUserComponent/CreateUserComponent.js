@@ -1,108 +1,131 @@
 import React, { Component } from 'react';
 import UserService from '../../../services/AdminUserService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope,faUser,faLock} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+const initialState = {
+    id: '',
+    firstName: '',
+    lastName: '',
+    emailId: '',
+    password: '',
+    role: 'USER',
+    firstNameError: '',
+    lastNameError: '',
+    emailIdError: '',
+    passwordError: ''
+}
 class CreateUserComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            id: '',
-            firstName: '',
-            lastName: '',
-            emailId: '',
-            password: '',
-            role: 'USER'    
-        }
-        this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
-        this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
-        this.changeEmailIdHandler = this.changeEmailIdHandler.bind(this);
-        this.changePasswordHandler = this.changePasswordHandler.bind(this);
-        this.changeRoleHandler = this.changeRoleHandler.bind(this);
-        this.saveUser = this.saveUser.bind(this);
+        this.state = initialState;
     }
-
+    validate = () => {
+        let firstNameError= '';
+        let lastNameError= '';
+        let emailIdError= '';
+        let passwordError= '';
+        const validEmailRegex = RegExp(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i);
+        const strongRegex = new RegExp(/^[A-Za-z_0-9@#$%]{6,12}/);
+        
+        if(!strongRegex.test(this.state.password)){
+            passwordError='length must be atleast 8 with at least 1 lowercase, uppercase, number, special symbol';
+        }
+        if(!this.state.firstName){
+            firstNameError='first name cannot be blank';
+        }
+        if(!validEmailRegex.test(this.state.emailId)){
+            emailIdError = "Invalid Email Id";
+        }
+        if(!this.state.lastName){
+            lastNameError='last name cannot be blank';
+        }
+        if(emailIdError || firstNameError || lastNameError || passwordError){
+            this.setState({emailIdError , firstNameError , lastNameError, passwordError});
+            return false;
+        }
+        return true;
+    }
     saveUser = (e) => {
         e.preventDefault();
-        let user = {
-            id: null, firstName: this.state.firstName, lastName: this.state.lastName,
-            emailId: this.state.emailId, password: this.state.password, role: this.state.role
-        };
-        console.log(JSON.stringify(user));
-        UserService.createUser(user).then(res => {
-            this.props.history.push('/users');
-        })
+        const isValid = this.validate();
+        if (isValid) {
+
+            let user = {
+                id: null, firstName: this.state.firstName, lastName: this.state.lastName,
+                emailId: this.state.emailId, password: this.state.password, role: this.state.role
+            };
+            console.log(JSON.stringify(user));
+            UserService.createUser(user).then(res => {
+                this.props.history.push('/adminManageUsers');
+            })
+
+            this.setState(initialState);
+        }
     }
 
     cancel() {
-        this.props.history.push('/users');
+        this.props.history.push('/adminManageUsers');
     }
 
-    changeFirstNameHandler = (event) => {
-        this.setState({ firstName: event.target.value });
-    }
-
-    changeLastNameHandler = (event) => {
-        this.setState({ lastName: event.target.value });
-    }
-
-    changeEmailIdHandler = (event) => {
-        this.setState({ emailId: event.target.value });
-    }
-
-    changePasswordHandler = (event) => {
-        this.setState({ password: event.target.value });
-    }
-    changeRoleHandler = (event) => {
-        this.setState({ role: event.target.value });
-    }
-
+    changeHandler = (event) => {
+        const isCheckedbox = event.target.type === "checkbox";
+        this.setState({
+            [event.target.name]: isCheckedbox
+                ? event.target.isChecked
+                : event.target.value
+        });
+    };
 
 
     render() {
         return (
             <div>
-           
-            
-                <div  className="container">
-                    <div  className="row">
+
+
+                <div className="container">
+                    <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3 ">
                             <h3 className="text-center mt-4">Add User</h3>
-                            <div  className="card-body ">
+                            <div className="card-body ">
                                 <form>
                                     <div className="form-group">
                                         <label>Enter First Name <FontAwesomeIcon icon={faUser} /></label>
                                         <input placeholder="First Name" name="firstName"
                                             className="form-control" value={this.state.firstName}
-                                            onChange={this.changeFirstNameHandler} />
+                                            onChange={this.changeHandler} />
                                     </div>
+                                    <div style={{ color: 'red' }}>{this.state.firstNameError}</div>
                                     <div className="form-group">
                                         <label>Enter Last Name <FontAwesomeIcon icon={faUser} /></label>
                                         <input placeholder="Last Name" name="lastName"
                                             className="form-control" value={this.state.lastName}
-                                            onChange={this.changeLastNameHandler} />
+                                            onChange={this.changeHandler} />
                                     </div>
+                                    <div style={{ color: 'red' }}>{this.state.lastNameError}</div>
                                     <div className="form-group">
                                         <label>Enter Email Id <FontAwesomeIcon icon={faEnvelope} /> </label>
                                         <input placeholder="Email ID" name="emailId"
                                             className="form-control" value={this.state.emailId}
-                                            onChange={this.changeEmailIdHandler} />
+                                            onChange={this.changeHandler} />
                                     </div>
+                                    <div style={{ color: 'red' }}>{this.state.emailIdError}</div>
 
                                     <div className="form-group">
-                                
+
                                         <label>Enter Password <FontAwesomeIcon icon={faLock} /></label>
-                                        <input placeholder="Password" name="password"
+                                        <input type="password" placeholder="Password" name="password"
                                             className="form-control" value={this.state.password}
-                                            onChange={this.changePasswordHandler} />
-                                           
+                                            onChange={this.changeHandler} />
+
                                     </div>
+                                    <div style={{ color: 'red' }}>{this.state.passwordError}</div>
 
                                     <div className="form-group">
                                         <label>Enter Role(USER,MODERATOR)</label>
-                                            <select value={this.state.role} onChange={this.changeRoleHandler} name="role">
-                                                <option value="USER">USER</option>
-                                                <option value="MODERATOR">MODERATOR</option>
-                                            </select>
+                                        <select value={this.state.role} onChange={this.changeHandler} name="role">
+                                            <option value="USER">USER</option>
+                                            <option value="MODERATOR">MODERATOR</option>
+                                        </select>
                                     </div>
                                     <button className="btn btn-success" onClick={this.saveUser}>Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
@@ -116,7 +139,4 @@ class CreateUserComponent extends Component {
         );
     }
 }
-
-
-
 export default CreateUserComponent;

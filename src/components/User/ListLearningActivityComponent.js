@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserService from '../../services/UserService';
+import UserHeader from '../UserHeader';
 
 class ListActivityComponent extends Component{
     constructor(props){
@@ -26,50 +27,53 @@ class ListActivityComponent extends Component{
     render() {
         return (
             <div>
-                <h2 className="text-center"> View Activity List</h2>
-                
-                <div className="row">
-                    <table className="table table-striped table-bordered">
-                        <thead>
-                            <tr>                                
-                                <th>Activity Id</th>
-                                <th>Activity Name</th>
-                                <th>Activity Link</th>
-                                <th>Activity Level</th>
-                                <th>Activity Time</th>
-                                <th>Activity Release Date</th>
-                                <th>Assesment Name</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+                <UserHeader/>
+                <div className="container card-view">
+                    <h2 className="text-center m2-4"> View Activity List</h2>
+                    
+                    <div className="row">
+                        <table className="table table-striped table-bordered table-color">
+                            <thead>
+                                <tr>                                
+                                    <th>Activity Id</th>
+                                    <th>Activity Name</th>
+                                    <th>Activity Link</th>
+                                    <th>Activity Level</th>
+                                    <th>Activity Time</th>
+                                    <th>Activity Release Date</th>
+                                    <th>Assesment Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            {
-                                
-                                this.state.activities.map(
-                                    activity => 
-                                    <tr key= {activity.id}>
-                                        <td>{activity.id}</td>
-                                        <td>{activity.activityName}</td>
-                                        <td>{activity.activityLink}</td>
-                                        <td>{activity.activityLevel}</td>
-                                        <td>{activity.activityTime}</td>
-                                        <td>{activity.activityReleaseDate}</td>
-                                        <td>{activity.assesment.assessmentName}</td>
-                        
-                                        <td>
-                                            <button  style = {{marginLeft: "10px"}} onClick = {()=>this.addActivity()} className = "btn btn-info">Register</button>
-                                        </td>
-                                     </tr>  
-                                )
-                            }
+                            <tbody>
+                                {
+                                    
+                                    this.state.activities.map(
+                                        activity => 
+                                        <tr key= {activity.id}>
+                                            <td>{activity.id}</td>
+                                            <td>{activity.activityName}</td>
+                                            <td>{activity.activityLink}</td>
+                                            <td>{activity.activityLevel}</td>
+                                            <td>{activity.activityTime}</td>
+                                            <td>{activity.activityReleaseDate}</td>
+                                            <td>{activity.assesment.assessmentName}</td>
+                            
+                                            <td>
+                                                <button  style = {{marginLeft: "10px"}} onClick = {()=>this.addActivity()} className = "btn btn-info">Register</button>
+                                            </td>
+                                        </tr>  
+                                    )
+                                }
 
 
-                        </tbody>
+                            </tbody>
 
-                    </table>
+                        </table>
 
-                </div>
+                    </div>
+                </div>    
             </div>
         );
     }

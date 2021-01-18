@@ -1,0 +1,74 @@
+.navigation {
+  position: absolute;
+  left: 50px;
+  right: 0px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.bg-warning {
+  background-color: #074366 !important;
+}
+
+.text-dark {
+  color: #343a40 !important;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: #f0e5e5;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.my-nav-bar {
+  width: 100%; /* the parent must have 100% either */
+  overflow: hidden; /* hides overflow */
+  margin: 0;
+  padding: 0;
+}
+.custom_nav_link {
+  align-self: flex-end !important;
+}
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+  background-color: black;
+}
+
+.navbar-fixed-top {
+  /* Whatever you want. */
+
+  height: 80px;
+}
+.dropdown {
+  margin-left: auto;
+  color: white;
+}
+h1 {
+  display: inline;
+}
+.button-right {
+  float: right;
+}
+.top-buffer {
+  margin-top: 20px;
+}
+.navbar-add {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap; /* assumes you only want one row */
+}
+
+#basic-nav-dropdown {
+  color: white;
+  font-weight: bold;
+}
+
+#name {
+  text-align: center;
+}

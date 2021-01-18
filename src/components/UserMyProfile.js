@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import MyProfileComponent from './User/MyProfileComponent';
 
 class UserMyProfile extends Component {
     render() {
         return (
             <div>
-                <h2>Welcome </h2>                
+                <MyProfileComponent {...this.props}/>            
             </div>
         );
     }

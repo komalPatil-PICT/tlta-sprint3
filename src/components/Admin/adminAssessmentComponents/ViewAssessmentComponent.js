@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AssessmentService from '../../../services/AdminAssessmentService';
+import Header from '../../Header';
 
 
 class ViewAssessmentComponent extends Component {
@@ -22,7 +23,8 @@ class ViewAssessmentComponent extends Component {
     render() {
         return (
             <div>
-               <div className= "card col-md-6 offset-md-3">
+                <Header/>
+               <div className= "card col-md-6 offset-md-3 card-view">
                     <h3 className = "text-center mt-4">View Assessment Details</h3>
                     <div className= "card-body">
                         <div className = "row">

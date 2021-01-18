@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AdminUsersActivityService from '../../../services/AdminUsersActivityService';
+import Header from '../../Header';
 
 class ListUsersActivityComponent extends Component {
     constructor(props){
@@ -31,10 +32,13 @@ class ListUsersActivityComponent extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Users Activity List</h2>
+                <Header/>
+                <div className="container">
+
+                <h2 className="text-center mt-4">Users Activity List</h2>
                 
                 <div className="row">
-                    <table className="table table-striped table-bordered">
+                    <table className="table table-striped table-bordered table-color">
                         <thead>
                             <tr>                                
                                 <th>User Id</th>
@@ -72,6 +76,7 @@ class ListUsersActivityComponent extends Component {
 
                     </table>
 
+                </div>
                 </div>
             </div>
         );

@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/Header';
+//  import Header from './components/Header';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AdminDashBoard from './components/AdminDashBoard';
 import ModeratorDashBoard from './components/ModeratorDashBoard';
@@ -37,21 +37,26 @@ import UserHomePage from './components/UserHomePage';
 import UserBrowsePage from './components/UserBrowsePage';
 import UserMyProfile from './components/UserMyProfile';
 import UserSettings from './components/UserSettings';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 import ViewLearningActivityComponent from './components/User/ViewLearningActivityComponent';
 import RegisterForActivityComponent from './components/User/RegisterForActivityComponent';
 
 import Login from './Login';
 import Logout from './Logout';
+import ForgetPassword from './components/ForgetPassword';
 
 const AppRouter = () => (
     <BrowserRouter>
-       <Header />
-        <div className='container'>
+       {/* <Header /> */}
+        <div className='container-fluid'>
             <Switch>
-                <Route path="/" component={AdminDashBoard} exact={true} />
+                <Route path="/admin" component={AdminDashBoard} exact={true} />
                 <Route path="/moderator" component={ModeratorDashBoard} exact={true} />
-                <Route path="/login" component={Login} exact={true} />
+                <Route path="/" component={Login} exact={true} />
                 <Route path="/logout" component={Logout} exact={true} />
+                <Route path="/forgetPassword" component={ForgetPassword} />
+
 
                 <Route path="/adminManageUsers" component={AdminManageUser} />
                 <Route path="/adminActivities" component={AdminManageActivity} />
@@ -63,6 +68,9 @@ const AppRouter = () => (
                 <Route path="/browsePage" component={UserBrowsePage} />
                 <Route path="/myProfile" component={UserMyProfile} />
                 <Route path="/settings" component={UserSettings} />
+                <Route path="/aboutUs" component={AboutUs} />
+                <Route path="/contactUs" component={ContactUs} />
+
 
                 <Route path="/user-home/:id" component={ViewLearningActivityComponent} />
                 <Route path="/add-activity" component={RegisterForActivityComponent} />
@@ -84,7 +92,7 @@ const AppRouter = () => (
                 <Route path = "/view-user/:id" component= {ViewUser}></Route>             
 
                 <Route path="/activities" component={ListActivities} />
-                <Route path="/add-activity" component={AddActivity} />
+                <Route path="/add-learning-activity" component={AddActivity} />
                 <Route path = "/update-activity/:id" component= {UpdateActivity}></Route>
                 <Route path = "/view-activity/:id" component= {ViewActivity}></Route>  
 
