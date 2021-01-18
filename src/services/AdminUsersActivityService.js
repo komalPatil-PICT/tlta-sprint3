@@ -7,9 +7,9 @@ class AdminUsersActivityService {
         return axios.get(USERSACTIVITY_API_BASE_URL+'/');
     }
 
-    // getUserActivityById(userActivityId){
-    //     return axios.get(USERSACTIVITY_API_BASE_URL+'/'+userActivityId);
-    // }
+    getUserActivityById(userActivityId){
+        return axios.get(USERSACTIVITY_API_BASE_URL+'/'+userActivityId);
+    }
 
     createUser(activity){
         return axios.post(USERSACTIVITY_API_BASE_URL+'/',activity);
