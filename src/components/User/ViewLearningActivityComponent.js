@@ -13,7 +13,7 @@ class ViewLearningActivityComponent extends Component {
     }
 
     componentDidMount(){
-        let id = 14;
+        let id = 8;
         AdminUsersActivityService.getUserActivityByUserId(id)
         .then((res) => {
             this.setState({userActivities: res.data});
@@ -30,13 +30,13 @@ class ViewLearningActivityComponent extends Component {
         return (
             <div>
                 <UserHeader/>
+                <div className="container card-view">
                 <h2 className="text-center">My Learning</h2>
-                <div className="container">
+                
                 <div className="row">
                     <table className="table table-striped table-bordered table-color">
                         <thead>
                             <tr>                                
-                                <th>User Activity Id</th>
                                 <th>User Name</th>
                                 <th>Activity Name</th>
                                 <th>Status</th>
@@ -51,7 +51,6 @@ class ViewLearningActivityComponent extends Component {
                                 this.state.userActivities.map(
                                     userActivity => 
                                     <tr key= {userActivity.userActivityId}>
-                                        <td>{userActivity.userActivityId}</td>
                                         <td>{userActivity.registerUser.firstName}</td>
                                         <td>{userActivity.learningActivity.activityName}</td>
                                         <td>{userActivity.status}</td>

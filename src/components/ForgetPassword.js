@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class ForgetPassword extends Component {
-    customerData;
+    userData;
     constructor(props) {
         super(props);
         this.state = {
             email: '',
             lastName: '',
+            password: '',
             newPassword: '',
             rePassword:'',
             errors: {}
@@ -18,7 +19,6 @@ class ForgetPassword extends Component {
         this.changeNewPasswordHandler=this.changeNewPasswordHandler.bind(this);
         this.changeRePasswordHandler=this.changeRePasswordHandler.bind(this);
         this.ForgetPassword=this.ForgetPassword.bind(this);
-       
     }
 
     emailHandler = (event) => {
@@ -53,7 +53,7 @@ class ForgetPassword extends Component {
 
         if (typeof this.state.email !== "undefined") {
 
-            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+))|("[\w-\s]+")([\w-]+(?:\.[\w-]+)))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            var pattern = new RegExp(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i);
 
             if (!pattern.test(this.state.email)) {
 
@@ -127,7 +127,23 @@ class ForgetPassword extends Component {
         return formIsValid;
     }
 
-    
+    componentDidMount(){
+        this.userData = JSON.parse(localStorage.getItem('registerUser'));
+        if (localStorage.getItem('registerUser')) {
+            this.setState({
+                email: this.userData.email,
+            //    lastName: this.userData.lastName
+            
+            })
+        } else {
+            this.setState({
+                email: '',
+            //    lastName:''
+              
+            })
+
+        }
+    }
 
     ForgetPassword(e) {
         e.preventDefault();
@@ -139,7 +155,8 @@ class ForgetPassword extends Component {
 
                 "email": this.state.email,
 
-                "custLastName": this.state.lastName
+                // "password": this.state.password
+                "lastName": this.state.lastName
 
             }
 
@@ -150,14 +167,14 @@ class ForgetPassword extends Component {
             }
 
             axios.post(apiBaseUrl, data, { headers: headers }).then(function (response) {
-                alert("New Password set successfully");
-               
+                alert("Password changed successfully");
+                localStorage.removeItem('registerUser');
                 window.location = "/";
                 
             }).catch(function (error) {
 
                
-                alert("Email or Lastname is incorrect.")
+                alert("Password is incorrect.")
             });
         }
     }
@@ -169,7 +186,7 @@ class ForgetPassword extends Component {
     render() {
         return (
             <div>
-                <div className="container">
+               <div className="container card-view">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
                             <h3 className="text-center">Forget Password</h3>
@@ -229,6 +246,7 @@ class ForgetPassword extends Component {
             </div>
         );
     }
+
 
 }
 

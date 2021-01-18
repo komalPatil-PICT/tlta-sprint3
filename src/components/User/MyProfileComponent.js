@@ -7,7 +7,7 @@ class MyProfileComponent extends Component{
         super(props);
 
         this.state = {
-            id: 14,
+            id: 8,
             userActivities: {},
             //isLoaded:false
         }
@@ -33,7 +33,6 @@ class MyProfileComponent extends Component{
                         <table className="table table-striped table-bordered table-color">
                                     <thead>
                                         <tr>                                
-                                            <th>User Id</th>
                                             <th>Name</th>
                                             <th>Last</th>
                                             <th>Email</th>
@@ -45,7 +44,6 @@ class MyProfileComponent extends Component{
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>{this.state.userActivities.id}</td>
                                             <td>{this.state.userActivities.firstName}</td>
                                             <td>{this.state.userActivities.lastName}</td>
                                             <td>{this.state.userActivities.emailId}</td>

@@ -60,9 +60,16 @@ body {
   margin-top: 75px;
 }
 
+.card-spacing {
+  padding: 2px;
+}
 .card-view-contactus {
   margin-top: 75px;
   margin-bottom: 50px;
+}
+
+.btn-spacing {
+  margin: 5px;
 }
 
 .table-color {

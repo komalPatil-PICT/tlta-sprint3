@@ -6,14 +6,14 @@ const ModeratorDashBoard = () => (
 <>
 <ModeratorHeader/>
     <Container className="card-container">
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center card-spacing">
             <Col md="auto">
                 <Card style={{ width: '18rem' }}>
                     <Card.Body>
-                        <Card.Link href='/moderatorManageUsers' >Manage Users</Card.Link>
+                        <Card.Link href='/moderatorManageUsers' >View Users</Card.Link>
                         <Card.Text>
                             <ul>
-                                <li>Can register new user</li>
+                                <li>Can view new user</li>
                                 <li>view existing user</li>
                                 <li>Change password of user</li>
                             </ul>                  
@@ -36,7 +36,7 @@ const ModeratorDashBoard = () => (
                 </Card>
             </Col >
         </Row>
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center card-spacing">
             <Col md="auto">
                 <Card style={{ width: '18rem' }}>
                     <Card.Body>

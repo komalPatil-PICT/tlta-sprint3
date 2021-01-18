@@ -12,8 +12,8 @@ const ModeratorHeader = () =>  (
     <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#">TLTA</Navbar.Brand>
         <Nav className="mr-auto">
-            <Nav.Link href="/adminManageUsers">Dashboard</Nav.Link>
-            <Nav.Link href="/adminManageUsers">Manage Users</Nav.Link>
+            <Nav.Link href="/moderator">Dashboard</Nav.Link>
+            <Nav.Link href="/moderatorManageUsers">View Users</Nav.Link>
             <Nav.Link href="/adminAssessments">Manage Assessments</Nav.Link>
             <Nav.Link href="/adminActivities">Manage Activities</Nav.Link>
             <Nav.Link href="/usersActivity">Review User's Activities</Nav.Link>

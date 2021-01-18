@@ -48,8 +48,8 @@ class ListActivityComponent extends Component{
             <div className="container">
                 <h2 className="text-center mt-4">Activities List</h2>
                 <div className="form-group"> 
-                    <button class="btn btn-success btn-lg float-right" onClick={this.addActivity}>Add Activity</button>
-                    <button class="btn btn-success btn-lg float-right" onClick={()=>this.viewActivity2()}>View Assessments</button>
+                    <button class="btn btn-success btn-lg float-right btn-spacing" onClick={this.addActivity}>Add Activity</button>
+                    <button class="btn btn-success btn-lg float-right btn-spacing" onClick={()=>this.viewActivity2()}>View Assessments</button>
                 </div>
                 <div className="row">
                     <table className="table table-striped table-bordered table-color">

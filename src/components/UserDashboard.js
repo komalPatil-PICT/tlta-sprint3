@@ -6,7 +6,7 @@ const UserDashboard = () => (
 <>
 <UserHeader/>
     <Container className="card-container">
-            <Row className="justify-content-md-center">
+            <Row className="justify-content-md-center card-spacing">
                 <Col md="auto">
                     <Card style={{ width: '18rem' }}>
                         <Card.Body>
@@ -32,7 +32,7 @@ const UserDashboard = () => (
                     </Card>
                 </Col >
             </Row>
-            <Row className="justify-content-md-center">
+            <Row className="justify-content-md-center card-spacing">
                 <Col md="auto">
                     <Card style={{ width: '18rem' }}>
                         <Card.Body>
