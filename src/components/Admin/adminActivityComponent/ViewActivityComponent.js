@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ActivityService from '../../../services/AdminLearningActivityService';
+import Header from '../../Header';
 
 class ViewActivityComponent extends Component {
     constructor(props) {
@@ -7,21 +8,24 @@ class ViewActivityComponent extends Component {
 
         this.state = {
             id: this.props.match.params.id,
-            activity: {}
+            activity: {},
+            isLoaded:false
         }
     }
 
     componentDidMount(){
         ActivityService.getActivityById(this.state.id).then( res => {
-            this.setState({activity: res.data});
+            this.setState({activity: res.data,isLoaded:true});
         })
     }
 
     render() {
         return (
             <div>
-               <div className= "card col-md-6 offset-md-3">
+                <Header/>
+               <div className= "card col-md-6 offset-md-3 card-view">
                     <h3 className = "text-center mt-4">View Activity Details</h3>
+                    {this.state.isLoaded?
                     <div className= "card-body">
                         <div className = "row">
                             <label>Activity Name: </label>
@@ -46,11 +50,12 @@ class ViewActivityComponent extends Component {
                             <div>{this.state.activity.activityReleaseDate}</div>
                         </div>
                         <div className = "row">
-                            <label>Assessment ID: </label>
-                            <div>{this.state.activity.assessmentId}</div>
+                            <label>Assessment Name: </label>
+                            <div>{this.state.activity.assesment.assessmentName}</div>
                         </div>
 
                     </div>
+                    :null}
                </div>
             </div>
         );

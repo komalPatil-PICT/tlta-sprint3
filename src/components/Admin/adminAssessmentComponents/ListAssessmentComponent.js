@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AssessmentService from '../../../services/AdminAssessmentService';
+//import Header from '../../Header';
 
 class ListAssessmentComponent extends Component{
     constructor(props){
@@ -42,13 +43,14 @@ class ListAssessmentComponent extends Component{
 
     render() {
         return (
-            <div>
+            <div className="container">
+                {/* <Header/> */}
                 <h2 className="text-center mt-4">Assessments List</h2>
                 <div className="form-group"> 
-                    <button class="btn btn-success btn-lg float-right" onClick={this.addAssessment}>Add Assessment</button>
+                    <button class="btn btn-success btn-lg float-right btn-spacing" onClick={this.addAssessment}>Add Assessment</button>
                 </div>
                 <div className="row">
-                    <table className="table table-striped table-bordered">
+                    <table className="table table-striped table-bordered table-color">
                         <thead>
                             <tr>                                
                                 <th>Assessment Id</th>

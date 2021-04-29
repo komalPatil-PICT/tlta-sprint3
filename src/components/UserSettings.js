@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import ChangePassword from './User/ChangePassword';
 
 class UserSettings extends Component {
     render() {
         return (
             <div>
-                <h2>Welcome </h2>                
+                <ChangePassword {...this.props}/>              
             </div>
         );
     }

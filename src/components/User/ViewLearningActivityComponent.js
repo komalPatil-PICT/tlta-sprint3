@@ -1,69 +1,77 @@
 import React, { Component } from 'react';
 import AdminUsersActivityService from '../../services/AdminUsersActivityService';
+import UserHeader from '../UserHeader';
 
 class ViewLearningActivityComponent extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props){
+        super(props)
 
         this.state = {
-            id: this.props.match.params.id,
-            userActivities: {},
-            isLoaded:false
+            userActivities: []
         }
+        this.uploadCertificate = this.uploadCertificate.bind(this);
     }
 
     componentDidMount(){
-        AdminUsersActivityService.getUserActivityById(this.state.id)
-        .then( res => {
-           this.setState({userActivities:res.data, isLoaded:true});
-        }); 
-        
+        let id = 8;
+        AdminUsersActivityService.getUserActivityByUserId(id)
+        .then((res) => {
+            this.setState({userActivities: res.data});
+      });
     }
+
+    uploadCertificate(id){
+        console.log(id);
+        this.props.history.push(`/update-certificate/${id}`)
+    }
+
 
     render() {
         return (
-            <div>     
-                <h3 className = "text-center">View Employee Details</h3>
-                {this.state.isLoaded?
+            <div>
+                <UserHeader/>
+                <div className="container card-view">
+                <h2 className="text-center">My Learning</h2>
+                
+                <div className="row">
+                    <table className="table table-striped table-bordered table-color">
+                        <thead>
+                            <tr>                                
+                                <th>User Name</th>
+                                <th>Activity Name</th>
+                                <th>Status</th>
+                                <th>Certificate</th>
+                                <th>File</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
 
-                <div className= "row">
-                    <table className="table table-striped table-bordered">
-                                <thead>
-                                    <tr>                                
-                                        <th>User Id</th>
-                                        <th>Activity Name</th>
-                                        <th>Activity Link</th>
-                                        <th>Activity Level</th>
-                                        <th>Activity Time</th>
-                                        <th>Activity Release Date</th>
-                                        <th>Assesment Name</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{this.state.userActivities.userActivityId}</td>
-                                        <td>{this.state.userActivities.learningActivity.activityName}</td>
-                                        <td>{this.state.userActivities.learningActivity.activityLink}</td>
-                                        <td>{this.state.userActivities.learningActivity.activityLevel}</td>
-                                        <td>{this.state.userActivities.learningActivity.activityTime}</td>
-                                        <td>{this.state.userActivities.learningActivity.activityReleaseDate}</td>
-                                        <td>{this.state.userActivities.assesment.assessmentName}</td>
-                        
+                        <tbody>
+                            {
+                                this.state.userActivities.map(
+                                    userActivity => 
+                                    <tr key= {userActivity.userActivityId}>
+                                        <td>{userActivity.registerUser.firstName}</td>
+                                        <td>{userActivity.learningActivity.activityName}</td>
+                                        <td>{userActivity.status}</td>
+                                        <td>{userActivity.certificate}</td>
+                                        <td>{userActivity.file}</td>
                                         <td>
-                                            <button  style = {{marginLeft: "10px"}} onClick = {()=>this.addActivity()} className = "btn btn-info">Register</button>
-                                        </td>
-                                    </tr>  
-                                </tbody>
+                                            <button onClick = {()=>this.uploadCertificate(userActivity.userActivityId)} className = "btn btn-info">Upload Certificate</button>
+                                        </td>          
+                                     </tr>  
+                                )
+                            }
+
+                        </tbody>
 
                     </table>
-               </div>
-                :null } 
+
+                </div>
+                </div>
             </div>
         );
     }
 }
-
-
 
 export default ViewLearningActivityComponent;

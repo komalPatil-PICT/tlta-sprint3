@@ -22,7 +22,7 @@ class ListActivityComponent extends Component{
     }
 
     addActivity(){
-        this.props.history.push('/add-activity');
+        this.props.history.push('/add-learning-activity');
     }
 
     editActivity(id){
@@ -38,20 +38,21 @@ class ListActivityComponent extends Component{
     viewActivity(id){
         this.props.history.push(`/view-activity/${id}`);
     }
-    viewActivity(){
+
+    viewActivity2(){
         this.props.history.push(`/assessments`);
-    }
+     }
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h2 className="text-center mt-4">Activities List</h2>
                 <div className="form-group"> 
-                    <button class="btn btn-success btn-lg float-right" onClick={this.addActivity}>Add Activity</button>
-                    <button class="btn btn-success btn-lg float-right" onClick={()=>this.viewActivity()}>View Assessments</button>
+                    <button class="btn btn-success btn-lg float-right btn-spacing" onClick={this.addActivity}>Add Activity</button>
+                    <button class="btn btn-success btn-lg float-right btn-spacing" onClick={()=>this.viewActivity2()}>View Assessments</button>
                 </div>
                 <div className="row">
-                    <table className="table table-striped table-bordered">
+                    <table className="table table-striped table-bordered table-color">
                         <thead>
                             <tr>                                
                                 <th>Activity Id</th>
@@ -60,7 +61,7 @@ class ListActivityComponent extends Component{
                                 <th>Activity Level</th>
                                 <th>Activity Time</th>
                                 <th>Activity Release Date</th>
-                                <th>Assesment ID</th>
+                                <th>Assesment Name</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

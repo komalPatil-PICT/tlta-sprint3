@@ -1,0 +1,42 @@
+.manageuser {
+  background-size: cover;
+}
+.container {
+  background-color: whitesmoke;
+  margin-top: 80px;
+}
+
+.thead-dark {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.card-body {
+  background-color: rgb(78, 78, 78);
+  color: white;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.text-center {
+  font-weight: bolder;
+  color: rgb(10, 10, 10);
+  text-align: center;
+}
+
+.text-heading {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.card {
+  background-color: #022c3d !important;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-color: rgb(3, 84, 121);
+  border-width: 3px;
+}

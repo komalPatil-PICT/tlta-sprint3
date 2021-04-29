@@ -1,16 +1,16 @@
 import axios from 'axios';
  
-const USER_ACTIVITY_API_BASE_URL = "http://localhost:8081/springfox/api/learningActivity";
- 
+const USER_ACTIVITY_API_BASE_URL = "http://localhost:8080/springfox/api/learningActivity";
+const MY_PROFILE_API_BASE_URL="http://localhost:8080/springfox/api/users";
 class UserService{
 
     getActivities(){
         return axios.get(USER_ACTIVITY_API_BASE_URL+'/');
     }
 
-    // createUser(activity){
-    //     return axios.post(USER_ACTIVITY_API_BASE_URL+'/',activity);
-    // }
+    getRegisterUserById(id){
+        return axios.get(MY_PROFILE_API_BASE_URL+'/'+id);
+    }
 
     getActivityById(activityId){
         return axios.get(USER_ACTIVITY_API_BASE_URL+'/'+activityId);

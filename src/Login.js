@@ -1,10 +1,8 @@
-
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
 import { Navbar} from 'react-bootstrap';
-
-
+import './login.css';
 
 class Login extends Component {
     customerData;
@@ -55,14 +53,14 @@ class Login extends Component {
     submituserRegistrationForm(e) {
 
         e.preventDefault();
-        localStorage.setItem('staff', JSON.stringify(this.state));
+        localStorage.setItem('registerUser', JSON.stringify(this.state));
 
 
         if (this.validateForm()) {
 
             console.log(this.state);
 
-            var apiBaseUrl = "http://localhost:8081/springfox/api/Login/login";
+            var apiBaseUrl = "http://localhost:8080/springfox/api/Login/login";
 
             var data = {
 
@@ -84,13 +82,13 @@ class Login extends Component {
             axios.post(apiBaseUrl, data, { headers: headers }).then(function (response) {
                 console.log(response);
                 if (data.role === "ADMIN") {
-                    window.location = "/";
+                    window.location = "/admin";
                 }
                 else if (data.role === "MODERATOR") {
                     window.location = "/moderator";
                 }
                 else if (data.role === "USER") {
-                    window.location = "/";
+                    window.location = "/userDashboard";
                 }
                 if (response.data.success) {
                     console.log("Login successfull");
@@ -131,6 +129,7 @@ class Login extends Component {
 
             var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 
+
             if (!pattern.test(this.state.email)) {
 
                 formIsValid = false;
@@ -151,7 +150,7 @@ class Login extends Component {
 
         if (typeof this.state.password !== "undefined") {
 
-            if (!this.state.password.match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
+            if (!this.state.password.match(/^[A-Za-z_0-9@#$%]{6,12}/)) {
 
                 formIsValid = false;
 
@@ -173,8 +172,8 @@ class Login extends Component {
     componentDidMount() {
 
         window.scrollTo(0, 0)
-        this.customerData = JSON.parse(localStorage.getItem('staff'));
-        if (localStorage.getItem('staff')) {
+        this.customerData = JSON.parse(localStorage.getItem('registerUser'));
+        if (localStorage.getItem('registerUser')) {
             this.setState({
                 email: this.customerData.email,
                 password: this.customerData.password
@@ -236,16 +235,19 @@ class Login extends Component {
                                         <option>MODERATOR</option>
                                         <option>USER</option>
                                     </select>
-
-
-
                                 </FormGroup>
+
                                 <div className="d-flex justify-content-center mt-3 login_container">
 
                                     <Button type="submit" className="btn btn-login">Submit</Button>
 
                                 </div>
 
+                                <div className="d-flex justify-content-center links">
+
+                                    <a className="linka" href="/forgetPassword">Forgot your password?</a>
+
+                                </div>
 
                             </Form>
 

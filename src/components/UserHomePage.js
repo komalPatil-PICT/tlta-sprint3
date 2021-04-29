@@ -5,7 +5,6 @@ class UserHomePage extends Component {
     render() {
         return (
             <div>
-                <h2>Welcome </h2>  
                 <ViewLearningActivityComponent {...this.props}/>
             </div>
         );

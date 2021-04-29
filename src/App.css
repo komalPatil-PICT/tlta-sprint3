@@ -9,7 +9,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear ;
+    animation: App-logo-spin infinite 20s linear;
   }
 }
 
@@ -37,23 +37,62 @@
   }
 }
 
-body{
+body {
   background-color: rosybrown;
-
 }
 .content {
   min-height: calc(100vh - 120px);
   /* 80px header + 40px footer = 120px  */
 }
+
+.container-fluid {
+  padding: 0px;
+}
+
+.card-container {
+  margin-top: 75px;
+  margin-bottom: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.card-view {
+  margin-top: 75px;
+}
+
+.card-spacing {
+  padding: 2px;
+}
+.card-view-contactus {
+  margin-top: 75px;
+  margin-bottom: 50px;
+}
+
+.btn-spacing {
+  margin: 5px;
+}
+
+.table-color {
+  background-color: aliceblue;
+}
+
+a.navbar-brand {
+  margin-left: 60px;
+}
+
+.about-us {
+  padding: 25px;
+}
+
 footer {
-  position:fixed;
+  position: fixed;
   height: 50px;
   bottom: 0;
   width: 100%;
   text-align: center;
 }
 
-.footer {
+/* .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -62,4 +101,4 @@ footer {
   text-align: center;
   color: white;
 }
-
+ */
